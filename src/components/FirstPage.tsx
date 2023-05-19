@@ -1,4 +1,3 @@
-// src/FirstPage.tsx
 import React, { useState } from 'react';
 
 const FirstPage = () => {
