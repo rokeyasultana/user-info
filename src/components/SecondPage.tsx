@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { DataGrid, GridColumns } from '@mui/x-data-grid';
+import DepartmentList from './DepartmentList';
 
 interface Post {
   id: number;
@@ -30,7 +31,12 @@ const SecondPage = () => {
         transform: 'translate(-50%, -30%)'
     }}>
      <DataGrid rows={posts} columns={columns} />
- 
+    <div style={{
+       marginTop:"50px",
+       marginBottom:"50px"
+    }}>
+    <DepartmentList />
+    </div>
     </div>
   );
 };

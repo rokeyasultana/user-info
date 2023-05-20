@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Box, Button, Container, TextField, Typography } from '@mui/material';
 
 const FirstPage = () => {
   const [name, setName] = useState('');
@@ -18,33 +19,58 @@ const FirstPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
 
-      <label htmlFor="phoneNumber">Phone Number:</label>
-      <input
-        type="text"
-        id="phoneNumber"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-      />
-
-      <label htmlFor="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <button type="submit">Submit</button>
-    </form>
+    <div style={{
+      position: 'absolute', 
+      left: '50%', 
+      top: '20%',
+      transform: 'translate()'
+  }}>
+ <Container maxWidth="sm">
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          mt: 8,
+        }}
+      >
+        <Typography variant="h4" component="h1" sx={{ mb: 4 }}>
+          Welcome!
+        </Typography>
+        <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+          <TextField
+            label="Name"
+            variant="outlined"
+            fullWidth
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            label="Phone Number"
+            variant="outlined"
+            fullWidth
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            sx={{ mb: 2 }}
+          />
+          <Button type="submit" variant="contained" size="large">
+            Submit
+          </Button>
+        </form>
+      </Box>
+    </Container>
+    </div>
+   
   );
 };
 
