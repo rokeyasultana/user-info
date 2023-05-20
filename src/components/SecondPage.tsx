@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { DataGrid, GridColumns } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import DepartmentList from './DepartmentList';
 
 interface Post {
@@ -17,21 +17,20 @@ const SecondPage = () => {
       .then((data) => setPosts(data));
   }, []);
 
-  const columns: GridColumns = [
+  const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     { field: 'title', headerName: 'Title', width: 200 },
     { field: 'body', headerName: 'Body', width: 400 },
   ];
 
   return (
-    <div style={{
-        position: 'absolute', 
-        left: '50%', 
-        top: '60%',
-        transform: 'translate(-50%, -30%)'
-    }}>
-     <DataGrid rows={posts} columns={columns} />
-    <div style={{
+    <div 
+    style={{ height: 500,
+             width: '100%',
+             marginLeft:'250px',
+             top: '10%' }}>
+      <DataGrid columns={columns} rows={posts} />
+      <div style={{
        marginTop:"50px",
        marginBottom:"50px"
     }}>
@@ -42,3 +41,4 @@ const SecondPage = () => {
 };
 
 export default SecondPage;
+
